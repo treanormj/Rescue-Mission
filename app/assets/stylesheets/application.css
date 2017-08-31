@@ -1,0 +1,61 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+* vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
+body {
+  background-color: #ffe6b3;
+  font-size: 24px;
+
+}
+
+input[type=text]{
+  width: 60%;
+  height: 30px;
+  font-size: 20px;
+}
+
+input[type=submit]{
+  /*width: 60%;*/
+  color: white;
+  font-size: 20px;
+  background: blue;
+}
+
+.title {
+  text-align: center;
+  background-color: black;
+  border-radius:20px;
+  color: white;
+  margin-bottom: 5%;
+}
+
+.answers{
+  text-decoration: underline;
+}
+.question_link  a {
+  color: red;
+}
+
+a:visited{
+  color: blue;
+}
+.bottom_links  a {
+  color: white;
+  font-size: 20px;
+  background: blue;
+  padding: 15px;
+  float: left;
+  margin: 15px;
+  border-radius: 10px;
+}

@@ -1,0 +1,14 @@
+<div class="title">
+  <h1>The Question Site</h1>
+  <h3>There are no stupid questions- only stupid people!</h3>
+</div>
+
+<div class="question_link">
+  <% @questions.each do |question| %>
+    <h3>>>><%= link_to "#{question.title}", question_path(question) %></h3>
+  <% end %>
+</div>
+<br />
+<div class="bottom_links">
+  <h3><%= link_to 'Create New Question', new_question_path %></h3>
+</div>

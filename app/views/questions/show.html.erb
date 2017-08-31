@@ -1,0 +1,28 @@
+<div class="title">
+  <h1>Question Details</h1>
+</div>
+
+<h2><%= @question.title %></h2>
+<p><%= @question.description %></p>
+<br />
+<h3 class="answers">Answers:</h3>
+<ul>
+  <% if @question.answers.empty? %>
+    <li>
+      This question hasn't been answered yet
+    </li>
+  <% else %>
+    <% @question.answers.each do |answer| %>
+      <li>
+        <%= answer.description %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+<br>
+<div class="bottom_links">
+  <h5><%= link_to 'Delete', @question, method: :delete, data: {confirm: 'Are you sure?'} %></h5>
+  <h5><%= link_to 'Add Answer', new_question_answer_path(@question) %></h5>
+  <h5><%= link_to 'Edit Question', edit_question_path(@question) %></h5>
+  <h5><%= link_to 'Home', root_path %></h5>
+</div>
