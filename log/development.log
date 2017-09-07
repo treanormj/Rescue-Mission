@@ -6546,3 +6546,61 @@ Processing by QuestionsController#index as HTML
 Completed 200 OK in 435ms (Views: 374.2ms | ActiveRecord: 49.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-09-07 11:27:35 -0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (1.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY "questions"."created_at" ASC[0m
+  Rendered questions/index.html.erb within layouts/application (16403.0ms)
+Completed 200 OK in 16581ms (Views: 16565.7ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 11:44:11 -0400
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.erb within layouts/application
+Started GET "/" for 127.0.0.1 at 2017-09-07 11:44:14 -0400
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (5.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY "questions"."created_at" ASC[0m
+  Rendered questions/index.html.erb within layouts/application (18526.3ms)
+Completed 200 OK in 18684ms (Views: 18659.8ms | ActiveRecord: 22.1ms)
+
+
+Started GET "/questions/23" for 127.0.0.1 at 2017-09-07 11:44:38 -0400
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+Started GET "/questions/24" for 127.0.0.1 at 2017-09-07 11:46:48 -0400
+Started GET "/questions/23" for 127.0.0.1 at 2017-09-07 11:46:48 -0400
+Processing by QuestionsController#show as HTML
+Processing by QuestionsController#show as HTML
+  [1m[36mQuestion Load (13.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY "questions"."created_at" ASC[0m
+  Parameters: {"id"=>"24"}
+  Parameters: {"id"=>"23"}
+  Rendered questions/index.html.erb within layouts/application (156457.3ms)
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mAnswer Exists (6.2ms)[0m  [1m[34mSELECT  1 AS one FROM "answers" WHERE "answers"."question_id" = $1 LIMIT $2[0m  [["question_id", 23], ["LIMIT", 1]]
+Completed 200 OK in 156512ms (Views: 156490.7ms | ActiveRecord: 13.5ms)
+
+
+  [1m[36mAnswer Load (1.0ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 23]]
+  Rendered questions/show.html.erb within layouts/application (35.4ms)
+Completed 200 OK in 129967ms (Views: 44.2ms | ActiveRecord: 15.4ms)
+
+
+  [1m[36mQuestion Load (1.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[36mQuestion Load (2.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  Rendering questions/show.html.erb within layouts/application
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mAnswer Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "answers" WHERE "answers"."question_id" = $1 LIMIT $2[0m  [["question_id", 24], ["LIMIT", 1]]
+  Rendered questions/show.html.erb within layouts/application (2.7ms)
+  [1m[36mAnswer Exists (4.1ms)[0m  [1m[34mSELECT  1 AS one FROM "answers" WHERE "answers"."question_id" = $1 LIMIT $2[0m  [["question_id", 23], ["LIMIT", 1]]
+Completed 200 OK in 86ms (Views: 19.4ms | ActiveRecord: 27.8ms)
+
+
+  [1m[36mAnswer Load (3.6ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 23]]
+  Rendered questions/show.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 116ms (Views: 38.7ms | ActiveRecord: 35.7ms)
+
+
