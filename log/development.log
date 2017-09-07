@@ -6347,3 +6347,202 @@ Processing by QuestionsController#show as HTML
 Completed 200 OK in 33ms (Views: 28.0ms | ActiveRecord: 1.8ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-09-01 19:38:42 -0400
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (28.8ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY "questions"."created_at" ASC[0m
+  Rendered questions/index.html.erb within layouts/application (52.0ms)
+Completed 200 OK in 452ms (Views: 396.9ms | ActiveRecord: 39.5ms)
+
+
+Started GET "/questions/23" for 127.0.0.1 at 2017-09-01 19:38:53 -0400
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mAnswer Exists (3.2ms)[0m  [1m[34mSELECT  1 AS one FROM "answers" WHERE "answers"."question_id" = $1 LIMIT $2[0m  [["question_id", 23], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 23]]
+  Rendered questions/show.html.erb within layouts/application (36.6ms)
+Completed 200 OK in 142ms (Views: 46.0ms | ActiveRecord: 23.5ms)
+
+
+Started GET "/questions/23/answers/new" for 127.0.0.1 at 2017-09-01 19:39:11 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"23"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  Rendering answers/new.html.erb within layouts/application
+  Rendered answers/new.html.erb within layouts/application (61.5ms)
+Completed 200 OK in 82ms (Views: 78.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/questions/23/answers/new" for 127.0.0.1 at 2017-09-01 19:39:21 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"23"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  Rendering answers/new.html.erb within layouts/application
+  Rendered answers/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 31ms (Views: 28.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/questions/23/answers" for 127.0.0.1 at 2017-09-01 19:39:54 -0400
+Processing by AnswersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+9TRjq38ESiQDFDSTAOT0YXWIhaIJF0Or9JftI7hNA9GYEka7zCdD+N177be9iwctIroTirKX9517O4YDyZ5vw==", "answer"=>{"description"=>"Look at the instructions that came with it."}, "commit"=>"Create Answer", "question_id"=>"23"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "answers" ("description", "created_at", "updated_at", "question_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["description", "Look at the instructions that came with it."], ["created_at", "2017-09-01 23:39:54.239024"], ["updated_at", "2017-09-01 23:39:54.239024"], ["question_id", 23]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/questions/23
+Completed 302 Found in 6ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/questions/23" for 127.0.0.1 at 2017-09-01 19:39:54 -0400
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mAnswer Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "answers" WHERE "answers"."question_id" = $1 LIMIT $2[0m  [["question_id", 23], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 23]]
+  Rendered questions/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 29ms (Views: 25.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-01 19:39:59 -0400
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (0.8ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY "questions"."created_at" ASC[0m
+  Rendered questions/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 24ms (Views: 21.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/questions/24" for 127.0.0.1 at 2017-09-01 19:40:04 -0400
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mAnswer Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "answers" WHERE "answers"."question_id" = $1 LIMIT $2[0m  [["question_id", 24], ["LIMIT", 1]]
+  Rendered questions/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 27ms (Views: 23.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-01 19:40:18 -0400
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY "questions"."created_at" ASC[0m
+  Rendered questions/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 23ms (Views: 20.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/questions/25" for 127.0.0.1 at 2017-09-01 19:40:21 -0400
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mAnswer Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "answers" WHERE "answers"."question_id" = $1 LIMIT $2[0m  [["question_id", 25], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 25]]
+  Rendered questions/show.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 21ms (Views: 17.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/questions/25/answers/new" for 127.0.0.1 at 2017-09-01 19:40:28 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"25"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering answers/new.html.erb within layouts/application
+  Rendered answers/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 21ms (Views: 16.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/questions/25/answers" for 127.0.0.1 at 2017-09-01 19:40:44 -0400
+Processing by AnswersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1VSfpAagyQfgPh5IZwLCZr3/VtF/hAVaATf4OLt9Rqto4AcwRGxFIJNHoSz1932rjKOcid1qB4rbCUmUOroLGw==", "answer"=>{"description"=>"CLIMATE CHANGE!!!!"}, "commit"=>"Create Answer", "question_id"=>"25"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "answers" ("description", "created_at", "updated_at", "question_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["description", "CLIMATE CHANGE!!!!"], ["created_at", "2017-09-01 23:40:44.215598"], ["updated_at", "2017-09-01 23:40:44.215598"], ["question_id", 25]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/questions/25
+Completed 302 Found in 11ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/questions/25" for 127.0.0.1 at 2017-09-01 19:40:44 -0400
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mAnswer Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "answers" WHERE "answers"."question_id" = $1 LIMIT $2[0m  [["question_id", 25], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 25]]
+  Rendered questions/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 24ms (Views: 20.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-01 19:40:48 -0400
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (0.9ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY "questions"."created_at" ASC[0m
+  Rendered questions/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 18ms (Views: 15.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2017-09-01 19:40:52 -0400
+Processing by QuestionsController#new as HTML
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/questions" for 127.0.0.1 at 2017-09-01 19:41:45 -0400
+Processing by QuestionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZH3hy22Tcn4yCleOVg5gR7M/8l2ScQhony+n5iS0tYHZyXlfL1/+WUFz6OrE+9+KgmM4BTCfCrhFERZKpXP4MQ==", "question"=>{"title"=>"Is anybody there?", "description"=>"Does anybody care?"}, "commit"=>"Create Question"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "questions" WHERE "questions"."description" = $1 LIMIT $2[0m  [["description", "Does anybody care?"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "questions" ("title", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Is anybody there?"], ["description", "Does anybody care?"], ["created_at", "2017-09-01 23:41:45.206365"], ["updated_at", "2017-09-01 23:41:45.206365"]]
+  [1m[35m (7.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/questions/26
+Completed 302 Found in 14ms (ActiveRecord: 8.8ms)
+
+
+Started GET "/questions/26" for 127.0.0.1 at 2017-09-01 19:41:45 -0400
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mAnswer Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "answers" WHERE "answers"."question_id" = $1 LIMIT $2[0m  [["question_id", 26], ["LIMIT", 1]]
+  Rendered questions/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 17ms (Views: 14.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-01 19:41:56 -0400
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY "questions"."created_at" ASC[0m
+  Rendered questions/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2017-09-02 21:35:55 -0400
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (27.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY "questions"."created_at" ASC[0m
+  Rendered questions/index.html.erb within layouts/application (51.1ms)
+Completed 200 OK in 397ms (Views: 344.9ms | ActiveRecord: 38.4ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2017-09-05 19:14:32 -0400
+  [1m[35m (35.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (28.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY "questions"."created_at" ASC[0m
+  Rendered questions/index.html.erb within layouts/application (76.4ms)
+Completed 200 OK in 375ms (Views: 303.4ms | ActiveRecord: 59.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 11:03:53 -0400
+  [1m[35m (7.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (15.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY "questions"."created_at" ASC[0m
+  Rendered questions/index.html.erb within layouts/application (69.4ms)
+Completed 200 OK in 435ms (Views: 374.2ms | ActiveRecord: 49.0ms)
+
+

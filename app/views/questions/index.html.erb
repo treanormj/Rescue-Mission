@@ -5,7 +5,7 @@
 
 <div class="question_link">
   <% @questions.each do |question| %>
-    <h3>>>><%= link_to "#{question.title}", question_path(question) %></h3>
+    <h3><%= link_to "#{question.title}", question_path(question) %></h3>
   <% end %>
 </div>
 <br />
